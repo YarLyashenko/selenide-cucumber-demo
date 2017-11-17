@@ -16,4 +16,4 @@ Feature: Technical task for GrandParade. Open WilliamHill and place bet.
     Examples:
       | bet amount | bet return | total bet return | total stake |
       | 0.05       | £0.11      | £ 0.11           | £ 0.05      |
-      | 0.11       | £0.25      | £ 0.25           | £ 0.11      |
+      | 0.11       | £0.26      | £ 0.26           | £ 0.11      |
