@@ -1,4 +1,4 @@
-@smoketest
+@SmokeTest
 Feature: Technical task for GrandParade. Open WilliamHill and place bet.
 
   Scenario Outline: Open WilliamHill and place bet to Premier League event.
@@ -8,12 +8,13 @@ Feature: Technical task for GrandParade. Open WilliamHill and place bet.
     When bet on "first" event
     And bet for "home team"
     And bet amount "<bet amount>"
-    Then bet return amount is "<bet return>"
-    And total bet return amount is "<total bet return>"
-    And total stake amount is "<total stake>"
+    Then validate bet amount
+    And validate total bet amount
+    And validate total stake amount
     And bet is placed after 'place bet' button is clicked.
 
     Examples:
-      | bet amount | bet return | total bet return | total stake |
-      | 0.05       | £0.11      | £ 0.11           | £ 0.05      |
-      | 0.11       | £0.26      | £ 0.26           | £ 0.11      |
+      | bet amount |
+      | 0.05       |
+      | 0.11       |
+

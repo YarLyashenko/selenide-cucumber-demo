@@ -1,6 +1,5 @@
 package williamHill.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java8.En;
 import williamHill.pages.BettingPage;
 import williamHill.pages.panel.BetSlipPanel;
@@ -8,8 +7,6 @@ import williamHill.pages.panel.CompetitionMatchesListPanel;
 import williamHill.pages.panel.FootballEventLinePanel;
 
 import static com.codeborne.selenide.Selenide.page;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class WilliamHillStepDefinitions implements En {
 
@@ -57,18 +54,18 @@ public class WilliamHillStepDefinitions implements En {
         And("^bet amount \"([^\"]*)\"$", (String amount) -> {
             betSlip.fillBetAmount(amount);
         });
-        Then("^bet return amount is \"([^\"]*)\"$", (String amount) -> {
-            assertEquals(betSlip.getBetReturnAmount(), amount);
-        });
-        And("^total bet return amount is \"([^\"]*)\"$", (String amount) -> {
-            assertEquals(betSlip.getTotalBetReturnAmount(), amount);
-        });
-        And("^total stake amount is \"([^\"]*)\"$", (String amount) -> {
-            assertEquals(betSlip.getTotalStakeAmount(), amount);
-        });
         And("^bet is placed after 'place bet' button is clicked\\.$", () -> {
             betSlip.clickPlaceBet();
-            assertTrue(betSlip.isBetsPlaced());
+            betSlip.validateIsBetsPlaced();
+        });
+        Then("^validate bet amount$", () -> {
+            betSlip.validateBetReturnAmount();
+        });
+        And("^validate total bet amount$", () -> {
+            betSlip.validateTotalBetReturnAmount();
+        });
+        And("^validate total stake amount$", () -> {
+            betSlip.validateTotalStakeAmount();
         });
     }
 }
